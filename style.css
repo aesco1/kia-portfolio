@@ -4,16 +4,18 @@
 
 /* ---------- Custom Properties ---------- */
 :root {
-  /* Colors */
-  --cream:        #FAF6F0;
-  --cream-warm:   #F0E8DE;
+  /* Colors — warm, feminine palette */
+  --cream:        #FBF7F2;
+  --cream-warm:   #F5EDE4;
   --rose:         #C4728A;
   --rose-deep:    #8B4A5E;
-  --rose-light:   #F2DDE3;
-  --green-dark:   #2B3A2D;
-  --green-darker: #1F2B21;
-  --text-dark:    #2C2C2C;
-  --text-mid:     #5A5A5A;
+  --rose-light:   #FEF0F4;
+  --mauve:        #B8849A;
+  --blush:        #F7EAF0;
+  --plum-dark:    #3D3235;
+  --plum-darker:  #332A2D;
+  --text-dark:    #3A2A2E;
+  --text-mid:     #6B5359;
   --text-light:   #D4D0CB;
   --white:        #FFFFFF;
 
@@ -28,10 +30,10 @@
   --container-max: 1080px;
 
   /* Misc */
-  --radius:       12px;
+  --radius:       16px;
   --radius-pill:  100px;
-  --shadow-card:  0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.10);
+  --shadow-card:  0 2px 12px rgba(196, 114, 138, 0.08);
+  --shadow-hover: 0 8px 28px rgba(196, 114, 138, 0.14);
   --transition:   0.3s ease;
 }
 
@@ -104,11 +106,12 @@ button {
   right: 0;
   z-index: 1000;
   padding: 1.25rem 0;
+  border-top: 3px solid var(--rose);
   transition: background-color var(--transition), padding var(--transition), backdrop-filter var(--transition);
 }
 
 .nav.scrolled {
-  background-color: rgba(43, 58, 45, 0.95);
+  background-color: rgba(61, 50, 53, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 0.75rem 0;
@@ -157,9 +160,9 @@ button {
   bottom: -4px;
   left: 0;
   width: 0;
-  height: 2px;
+  height: 3px;
   background: var(--rose);
-  border-radius: 1px;
+  border-radius: 1.5px;
   transition: width var(--transition);
 }
 
@@ -234,7 +237,7 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: var(--green-dark);
+  background-color: var(--plum-dark);
   background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 28px 28px;
   overflow: hidden;
@@ -245,6 +248,20 @@ button {
   z-index: 2;
   padding: 6rem var(--container-px) 8rem;
   max-width: 800px;
+}
+
+/* Soft rose glow behind hero text */
+.hero__content::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(ellipse at center, rgba(196,114,138,0.15) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .hero__eyebrow {
@@ -265,7 +282,7 @@ button {
 .hero__name-script {
   display: block;
   font-family: var(--font-script);
-  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-size: clamp(4rem, 12vw, 8.5rem);
   font-weight: 700;
   color: var(--cream);
   margin-bottom: 0.1em;
@@ -283,6 +300,7 @@ button {
 
 .hero__tagline {
   font-family: var(--font-display);
+  font-style: italic;
   font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 400;
   line-height: 1.7;
@@ -375,14 +393,14 @@ button {
 }
 
 .section--dark {
-  background-color: var(--green-dark);
+  background-color: var(--plum-dark);
   background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
 .section__label {
   font-family: var(--font-script);
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
   color: var(--rose);
   margin-bottom: 0.5rem;
 }
@@ -395,10 +413,13 @@ button {
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 4vw, 2.6rem);
   font-weight: 600;
+  font-style: italic;
   line-height: 1.25;
   color: var(--text-dark);
   margin-bottom: 2.5rem;
   max-width: 600px;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(196, 114, 138, 0.2);
 }
 
 .section__heading em {
@@ -409,6 +430,7 @@ button {
 
 .section__heading--light {
   color: var(--cream);
+  border-bottom-color: rgba(196, 114, 138, 0.25);
 }
 
 .section__heading--light em {
@@ -451,9 +473,10 @@ button {
 
 .card {
   background: var(--white);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(196, 114, 138, 0.1);
   border-radius: var(--radius);
   padding: 2rem;
+  box-shadow: var(--shadow-card);
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
@@ -463,7 +486,7 @@ button {
 }
 
 .card--dark {
-  background-color: var(--green-dark);
+  background-color: var(--plum-dark);
   border-color: rgba(255, 255, 255, 0.08);
 }
 
@@ -563,19 +586,19 @@ button {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  padding: 0.3rem 0.85rem;
+  padding: 0.4rem 1rem;
   border-radius: var(--radius-pill);
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .badge--green {
-  background-color: rgba(43, 58, 45, 0.1);
-  color: var(--green-dark);
+  background-color: rgba(184, 132, 154, 0.12);
+  color: var(--mauve);
 }
 
 .badge--rose-light {
-  background-color: var(--rose-light);
+  background-color: var(--blush);
   color: var(--rose-deep);
 }
 
@@ -589,9 +612,10 @@ button {
    ============================================ */
 .skill-group {
   background: var(--white);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(196, 114, 138, 0.1);
   border-radius: var(--radius);
   padding: 2rem;
+  box-shadow: var(--shadow-card);
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
@@ -618,17 +642,18 @@ button {
   display: inline-block;
   font-size: 0.82rem;
   font-weight: 500;
-  padding: 0.4rem 1rem;
+  padding: 0.45rem 1.1rem;
   border-radius: var(--radius-pill);
   background-color: var(--white);
-  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border: 1.5px solid rgba(196, 114, 138, 0.15);
   color: var(--text-mid);
-  transition: border-color var(--transition), color var(--transition);
+  transition: border-color var(--transition), color var(--transition), background-color var(--transition);
 }
 
 .tag:hover {
   border-color: var(--rose);
   color: var(--rose-deep);
+  background-color: var(--blush);
 }
 
 /* ============================================
@@ -686,7 +711,7 @@ button {
    FOOTER
    ============================================ */
 .footer {
-  background-color: var(--green-darker);
+  background-color: var(--plum-darker);
   padding: 1.75rem 0;
   text-align: center;
 }
@@ -712,7 +737,7 @@ button {
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    background-color: rgba(31, 43, 33, 0.97);
+    background-color: rgba(51, 42, 45, 0.97);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     opacity: 0;
@@ -827,10 +852,10 @@ button {
    DARK MODE
    ============================================ */
 [data-theme="dark"] {
-  --cream:        #1A1A22;
-  --cream-warm:   #202028;
-  --rose-light:   #2A1D24;
-  --white:        #26263A;
+  --cream:        #1E1A1C;
+  --cream-warm:   #241E21;
+  --rose-light:   #2E1D24;
+  --white:        #2A2228;
   --text-dark:    #EDE8E2;
   --text-mid:     #9E9690;
   --shadow-card:  0 2px 8px rgba(0, 0, 0, 0.35);
@@ -865,10 +890,10 @@ body,
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Current badge on dark bg needs readable green tint */
+/* Current badge on dark bg needs readable mauve tint */
 [data-theme="dark"] .badge--green {
-  background-color: rgba(100, 160, 110, 0.15);
-  color: #7DBF8A;
+  background-color: rgba(184, 132, 154, 0.2);
+  color: #D4A0B8;
 }
 
 /* ============================================
