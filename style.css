@@ -5,18 +5,18 @@
 /* ---------- Custom Properties ---------- */
 :root {
   /* Colors — warm, feminine palette */
-  --cream:        #FBF7F2;
-  --cream-warm:   #F5EDE4;
-  --rose:         #C4728A;
-  --rose-deep:    #8B4A5E;
-  --rose-light:   #FEF0F4;
-  --mauve:        #B8849A;
-  --blush:        #F7EAF0;
-  --plum-dark:    #3D3235;
-  --plum-darker:  #332A2D;
-  --text-dark:    #3A2A2E;
-  --text-mid:     #6B5359;
-  --text-light:   #D4D0CB;
+  --cream:        #FDF8F5;
+  --cream-warm:   #F8EEE8;
+  --rose:         #D4688A;
+  --rose-deep:    #A0405E;
+  --rose-light:   #FCE8F2;
+  --mauve:        #C490A8;
+  --blush:        #FAEAF2;
+  --plum-dark:    #4A2038;
+  --plum-darker:  #3C1A2E;
+  --text-dark:    #3A2030;
+  --text-mid:     #7A5065;
+  --text-light:   #EDD8E4;
   --white:        #FFFFFF;
 
   /* Typography */
@@ -852,10 +852,10 @@ button {
    DARK MODE
    ============================================ */
 [data-theme="dark"] {
-  --cream:        #1E1A1C;
-  --cream-warm:   #241E21;
-  --rose-light:   #2E1D24;
-  --white:        #2A2228;
+  --cream:        #1E1520;
+  --cream-warm:   #251A27;
+  --rose-light:   #301828;
+  --white:        #2C1F2E;
   --text-dark:    #EDE8E2;
   --text-mid:     #9E9690;
   --shadow-card:  0 2px 8px rgba(0, 0, 0, 0.35);
@@ -905,35 +905,52 @@ body,
   position: absolute;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .hero-botanical--rose {
-  width: 48px;
-  height: 48px;
-  top: 18%;
-  left: 8%;
+  width: 72px;
+  height: 72px;
+  top: 15%;
+  left: 6%;
   transform: rotate(-15deg);
 }
 
 .hero-botanical--sprig {
-  width: 64px;
-  height: 42px;
-  bottom: 18%;
-  right: 6%;
+  width: 90px;
+  height: 60px;
+  bottom: 20%;
+  right: 5%;
 }
 
 .hero-botanical--flower {
-  width: 36px;
-  height: 36px;
-  top: 40%;
-  right: 12%;
+  width: 52px;
+  height: 52px;
+  top: 38%;
+  right: 10%;
   transform: rotate(12deg);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .hero-botanical {
     display: none;
+  }
+
+  .section__label::before {
+    display: none;
+  }
+
+  .card::after {
+    display: none;
+  }
+
+  .floral-divider {
+    padding: 0.5rem var(--container-px);
+  }
+
+  .floral-divider__icon {
+    width: 18px;
+    height: 18px;
   }
 }
 
@@ -941,9 +958,9 @@ body,
 .section__label::before {
   content: '';
   display: inline-block;
-  width: 24px;
-  height: 16px;
-  margin-right: 8px;
+  width: 32px;
+  height: 22px;
+  margin-right: 10px;
   vertical-align: middle;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 16' fill='none'%3E%3Cpath d='M12,8 C10,4 6,2 4,4 C2,6 4,10 8,10 C10,10 11,9 12,8 Z' stroke='%23C4728A' stroke-width='1.2' fill='none'/%3E%3Cpath d='M12,8 C14,4 18,2 20,4 C22,6 20,10 16,10 C14,10 13,9 12,8 Z' stroke='%23C4728A' stroke-width='1.2' fill='none'/%3E%3Cpath d='M10,8 C10,10 11,14 10,15' stroke='%23C4728A' stroke-width='1' stroke-linecap='round' fill='none'/%3E%3Cpath d='M14,8 C14,10 13,14 14,15' stroke='%23C4728A' stroke-width='1' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='12' cy='8' r='1.2' stroke='%23C4728A' stroke-width='1' fill='none'/%3E%3C/svg%3E");
   background-size: contain;
@@ -1019,14 +1036,14 @@ body,
 .card::after {
   content: '';
   position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 20px;
-  height: 20px;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M10,2 C8,5 7,7 10,10 C13,7 12,5 10,2 Z' stroke='rgba(196,114,138,0.3)' stroke-width='0.8'/%3E%3Cpath d='M16,6 C13,7 11,9 10,10 C12,11 15,10 16,6 Z' stroke='rgba(196,114,138,0.3)' stroke-width='0.8'/%3E%3Cpath d='M4,6 C7,7 9,9 10,10 C8,11 5,10 4,6 Z' stroke='rgba(196,114,138,0.3)' stroke-width='0.8'/%3E%3Cpath d='M14,15 C13,12 11,11 10,10 C10,13 11,15 14,15 Z' stroke='rgba(196,114,138,0.3)' stroke-width='0.8'/%3E%3Cpath d='M6,15 C7,12 9,11 10,10 C10,13 9,15 6,15 Z' stroke='rgba(196,114,138,0.3)' stroke-width='0.8'/%3E%3Ccircle cx='10' cy='10' r='1.5' stroke='rgba(196,114,138,0.3)' stroke-width='0.8'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.7;
+  opacity: 1;
   pointer-events: none;
 }
 
