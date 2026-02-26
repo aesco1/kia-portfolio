@@ -4,19 +4,17 @@
 
 /* ---------- Custom Properties ---------- */
 :root {
-  /* Colors — warm, feminine palette */
-  --cream:        #FDF8F5;
-  --cream-warm:   #F8EEE8;
-  --rose:         #D4688A;
-  --rose-deep:    #A0405E;
-  --rose-light:   #FCE8F2;
-  --mauve:        #C490A8;
-  --blush:        #FAEAF2;
-  --plum-dark:    #4A2038;
-  --plum-darker:  #3C1A2E;
-  --text-dark:    #3A2030;
-  --text-mid:     #7A5065;
-  --text-light:   #EDD8E4;
+  /* Colors */
+  --cream:        #FAF6F0;
+  --cream-warm:   #F0E8DE;
+  --rose:         #C4728A;
+  --rose-deep:    #8B4A5E;
+  --rose-light:   #F2DDE3;
+  --green-dark:   #2B3A2D;
+  --green-darker: #1F2B21;
+  --text-dark:    #2C2C2C;
+  --text-mid:     #5A5A5A;
+  --text-light:   #D4D0CB;
   --white:        #FFFFFF;
 
   /* Typography */
@@ -30,10 +28,10 @@
   --container-max: 1080px;
 
   /* Misc */
-  --radius:       16px;
+  --radius:       12px;
   --radius-pill:  100px;
-  --shadow-card:  0 2px 12px rgba(196, 114, 138, 0.08);
-  --shadow-hover: 0 8px 28px rgba(196, 114, 138, 0.14);
+  --shadow-card:  0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.10);
   --transition:   0.3s ease;
 }
 
@@ -106,12 +104,11 @@ button {
   right: 0;
   z-index: 1000;
   padding: 1.25rem 0;
-  border-top: 3px solid var(--rose);
   transition: background-color var(--transition), padding var(--transition), backdrop-filter var(--transition);
 }
 
 .nav.scrolled {
-  background-color: rgba(61, 50, 53, 0.95);
+  background-color: rgba(43, 58, 45, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 0.75rem 0;
@@ -160,9 +157,9 @@ button {
   bottom: -4px;
   left: 0;
   width: 0;
-  height: 3px;
+  height: 2px;
   background: var(--rose);
-  border-radius: 1.5px;
+  border-radius: 1px;
   transition: width var(--transition);
 }
 
@@ -237,7 +234,7 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: var(--plum-dark);
+  background-color: var(--green-dark);
   background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 28px 28px;
   overflow: hidden;
@@ -248,20 +245,6 @@ button {
   z-index: 2;
   padding: 6rem var(--container-px) 8rem;
   max-width: 800px;
-}
-
-/* Soft rose glow behind hero text */
-.hero__content::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120%;
-  height: 120%;
-  background: radial-gradient(ellipse at center, rgba(196,114,138,0.15) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: -1;
 }
 
 .hero__eyebrow {
@@ -282,7 +265,7 @@ button {
 .hero__name-script {
   display: block;
   font-family: var(--font-script);
-  font-size: clamp(4rem, 12vw, 8.5rem);
+  font-size: clamp(3.5rem, 10vw, 7rem);
   font-weight: 700;
   color: var(--cream);
   margin-bottom: 0.1em;
@@ -300,7 +283,6 @@ button {
 
 .hero__tagline {
   font-family: var(--font-display);
-  font-style: italic;
   font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 400;
   line-height: 1.7;
@@ -393,14 +375,14 @@ button {
 }
 
 .section--dark {
-  background-color: var(--plum-dark);
+  background-color: var(--green-dark);
   background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
 .section__label {
   font-family: var(--font-script);
-  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  font-size: clamp(1rem, 2vw, 1.2rem);
   color: var(--rose);
   margin-bottom: 0.5rem;
 }
@@ -413,13 +395,10 @@ button {
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 4vw, 2.6rem);
   font-weight: 600;
-  font-style: italic;
   line-height: 1.25;
   color: var(--text-dark);
   margin-bottom: 2.5rem;
   max-width: 600px;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(196, 114, 138, 0.2);
 }
 
 .section__heading em {
@@ -430,7 +409,6 @@ button {
 
 .section__heading--light {
   color: var(--cream);
-  border-bottom-color: rgba(196, 114, 138, 0.25);
 }
 
 .section__heading--light em {
@@ -473,10 +451,9 @@ button {
 
 .card {
   background: var(--white);
-  border: 1px solid rgba(196, 114, 138, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--radius);
   padding: 2rem;
-  box-shadow: var(--shadow-card);
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
@@ -486,7 +463,7 @@ button {
 }
 
 .card--dark {
-  background-color: var(--plum-dark);
+  background-color: var(--green-dark);
   border-color: rgba(255, 255, 255, 0.08);
 }
 
@@ -586,19 +563,19 @@ button {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  padding: 0.4rem 1rem;
+  padding: 0.3rem 0.85rem;
   border-radius: var(--radius-pill);
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .badge--green {
-  background-color: rgba(184, 132, 154, 0.12);
-  color: var(--mauve);
+  background-color: rgba(43, 58, 45, 0.1);
+  color: var(--green-dark);
 }
 
 .badge--rose-light {
-  background-color: var(--blush);
+  background-color: var(--rose-light);
   color: var(--rose-deep);
 }
 
@@ -612,10 +589,9 @@ button {
    ============================================ */
 .skill-group {
   background: var(--white);
-  border: 1px solid rgba(196, 114, 138, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--radius);
   padding: 2rem;
-  box-shadow: var(--shadow-card);
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
@@ -642,18 +618,17 @@ button {
   display: inline-block;
   font-size: 0.82rem;
   font-weight: 500;
-  padding: 0.45rem 1.1rem;
+  padding: 0.4rem 1rem;
   border-radius: var(--radius-pill);
   background-color: var(--white);
-  border: 1.5px solid rgba(196, 114, 138, 0.15);
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
   color: var(--text-mid);
-  transition: border-color var(--transition), color var(--transition), background-color var(--transition);
+  transition: border-color var(--transition), color var(--transition);
 }
 
 .tag:hover {
   border-color: var(--rose);
   color: var(--rose-deep);
-  background-color: var(--blush);
 }
 
 /* ============================================
@@ -711,7 +686,7 @@ button {
    FOOTER
    ============================================ */
 .footer {
-  background-color: var(--plum-darker);
+  background-color: var(--green-darker);
   padding: 1.75rem 0;
   text-align: center;
 }
@@ -737,7 +712,7 @@ button {
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    background-color: rgba(51, 42, 45, 0.97);
+    background-color: rgba(31, 43, 33, 0.97);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     opacity: 0;
@@ -852,10 +827,10 @@ button {
    DARK MODE
    ============================================ */
 [data-theme="dark"] {
-  --cream:        #1E1520;
-  --cream-warm:   #251A27;
-  --rose-light:   #301828;
-  --white:        #2C1F2E;
+  --cream:        #1A1A22;
+  --cream-warm:   #202028;
+  --rose-light:   #2A1D24;
+  --white:        #26263A;
   --text-dark:    #EDE8E2;
   --text-mid:     #9E9690;
   --shadow-card:  0 2px 8px rgba(0, 0, 0, 0.35);
@@ -890,161 +865,10 @@ body,
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Current badge on dark bg needs readable mauve tint */
+/* Current badge on dark bg needs readable green tint */
 [data-theme="dark"] .badge--green {
-  background-color: rgba(184, 132, 154, 0.2);
-  color: #D4A0B8;
-}
-
-/* ============================================
-   DECORATIVE FEMININE ELEMENTS
-   ============================================ */
-
-/* ---------- 1. Hero Botanical SVGs ---------- */
-.hero-botanical {
-  position: absolute;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 1;
-}
-
-.hero-botanical--rose {
-  width: 72px;
-  height: 72px;
-  top: 15%;
-  left: 6%;
-  transform: rotate(-15deg);
-}
-
-.hero-botanical--sprig {
-  width: 90px;
-  height: 60px;
-  bottom: 20%;
-  right: 5%;
-}
-
-.hero-botanical--flower {
-  width: 52px;
-  height: 52px;
-  top: 38%;
-  right: 10%;
-  transform: rotate(12deg);
-}
-
-@media (max-width: 768px) {
-  .hero-botanical {
-    display: none;
-  }
-
-  .section__label::before {
-    display: none;
-  }
-
-  .card::after {
-    display: none;
-  }
-
-  .floral-divider {
-    padding: 0.5rem var(--container-px);
-  }
-
-  .floral-divider__icon {
-    width: 18px;
-    height: 18px;
-  }
-}
-
-/* ---------- 2. Section Label Bow Accent ---------- */
-.section__label::before {
-  content: '';
-  display: inline-block;
-  width: 32px;
-  height: 22px;
-  margin-right: 10px;
-  vertical-align: middle;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 16' fill='none'%3E%3Cpath d='M12,8 C10,4 6,2 4,4 C2,6 4,10 8,10 C10,10 11,9 12,8 Z' stroke='%23C4728A' stroke-width='1.2' fill='none'/%3E%3Cpath d='M12,8 C14,4 18,2 20,4 C22,6 20,10 16,10 C14,10 13,9 12,8 Z' stroke='%23C4728A' stroke-width='1.2' fill='none'/%3E%3Cpath d='M10,8 C10,10 11,14 10,15' stroke='%23C4728A' stroke-width='1' stroke-linecap='round' fill='none'/%3E%3Cpath d='M14,8 C14,10 13,14 14,15' stroke='%23C4728A' stroke-width='1' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='12' cy='8' r='1.2' stroke='%23C4728A' stroke-width='1' fill='none'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-/* ---------- 3. Floral Divider ---------- */
-.floral-divider {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 var(--container-px);
-}
-
-.floral-divider__line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(196, 114, 138, 0.3), transparent);
-}
-
-.floral-divider__icon {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  opacity: 0.55;
-}
-
-/* ---------- 4. Lace-style Footer Border ---------- */
-.footer {
-  position: relative;
-}
-
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 20px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20'%3E%3Cpath d='M0,20 Q10,0 20,20 Q30,0 40,20' fill='none' stroke='rgba(196,114,138,0.4)' stroke-width='1.5'/%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-size: 40px 20px;
-  pointer-events: none;
-}
-
-/* ---------- 5. Handdrawn Underline on "Kiana" ---------- */
-.hero__name-script {
-  position: relative;
-}
-
-.hero__name-script::after {
-  content: '';
-  position: absolute;
-  bottom: 0.05em;
-  left: 10%;
-  width: 80%;
-  height: 8px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M0,4 C20,0 40,8 60,4 C80,0 100,8 120,4' fill='none' stroke='rgba(196,114,138,0.7)' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  pointer-events: none;
-}
-
-/* ---------- 6. Card Corner Accent ---------- */
-.card {
-  position: relative;
-  overflow: hidden;
-}
-
-.card::after {
-  content: '';
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 28px;
-  height: 28px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M10,2 C8,5 7,7 10,10 C13,7 12,5 10,2 Z' stroke='rgba(196,114,138,0.3)' stroke-width='0.8'/%3E%3Cpath d='M16,6 C13,7 11,9 10,10 C12,11 15,10 16,6 Z' stroke='rgba(196,114,138,0.3)' stroke-width='0.8'/%3E%3Cpath d='M4,6 C7,7 9,9 10,10 C8,11 5,10 4,6 Z' stroke='rgba(196,114,138,0.3)' stroke-width='0.8'/%3E%3Cpath d='M14,15 C13,12 11,11 10,10 C10,13 11,15 14,15 Z' stroke='rgba(196,114,138,0.3)' stroke-width='0.8'/%3E%3Cpath d='M6,15 C7,12 9,11 10,10 C10,13 9,15 6,15 Z' stroke='rgba(196,114,138,0.3)' stroke-width='0.8'/%3E%3Ccircle cx='10' cy='10' r='1.5' stroke='rgba(196,114,138,0.3)' stroke-width='0.8'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 1;
-  pointer-events: none;
+  background-color: rgba(100, 160, 110, 0.15);
+  color: #7DBF8A;
 }
 
 /* ============================================
